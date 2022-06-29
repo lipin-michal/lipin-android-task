@@ -29,13 +29,14 @@ So what will be your tasks?
     
 (3) Modularization
   - Modularize the network part so we can separate this part from the rest of the application.
+
+(4) Unit test at least 1 class.
     
-(4) Write a small doc about your development steps, decisions and reasons to go for specific approach.
+(5) Write a small doc about your development steps, decisions and reasons to go for specific approach.
 
 PS: If you feel that you can do more, you can do one of the following bonus tasks (don't need to be in the order):
 - Add list pagination support.
 - Implement more sort options like: completed, nearest due date.
-- Write some unit tests (don't need to write UI tests).
 - Improve code that is already done.
 - Any other task that you judge it will be nice to have :D
 
