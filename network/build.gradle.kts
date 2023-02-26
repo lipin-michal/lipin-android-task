@@ -24,6 +24,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":domain"))
+
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.5.21")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.1")
 
