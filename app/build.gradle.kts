@@ -39,6 +39,7 @@ android {
 
 dependencies {
     implementation(project(":storage"))
+    implementation(project(":network"))
     implementation(project(":domain"))
 
     implementation("androidx.multidex:multidex:2.0.1")
