@@ -3,7 +3,6 @@ plugins {
     id("androidx.navigation.safeargs")
     kotlin("android")
     kotlin("android.extensions")
-    kotlin("plugin.serialization") version "1.5.0"
 }
 
 android {
@@ -46,7 +45,6 @@ dependencies {
 
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.5.21")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.1")
 
     implementation("com.google.android.material:material:1.4.0")
 
@@ -57,9 +55,6 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1")
 
     implementation("io.insert-koin:koin-android:3.1.2")
-
-    implementation("io.ktor:ktor-client-android:1.6.0")
-    implementation("io.ktor:ktor-client-serialization:1.6.0")
 
     implementation("androidx.navigation:navigation-fragment-ktx:2.3.5")
     implementation("androidx.navigation:navigation-ui-ktx:2.3.5")

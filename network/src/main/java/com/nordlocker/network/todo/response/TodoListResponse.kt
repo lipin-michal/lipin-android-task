@@ -1,14 +1,14 @@
-package com.nordlocker.android_task.network.response
+package com.nordlocker.network.todo.response
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
 data class TodoListResponse(
-    @SerialName("code")
+	@SerialName("code")
     val code: Int? = null,
-    @SerialName("meta")
+	@SerialName("meta")
     val meta: MetaResponse? = null,
-    @SerialName("data")
+	@SerialName("data")
     val data: List<TodoResponse>? = null
 )

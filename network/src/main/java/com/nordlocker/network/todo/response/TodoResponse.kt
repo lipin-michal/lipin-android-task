@@ -1,4 +1,4 @@
-package com.nordlocker.android_task.network.response
+package com.nordlocker.network.todo.response
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
