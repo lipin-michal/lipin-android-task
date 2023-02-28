@@ -1,16 +1,14 @@
 package com.nordlocker.android_task.ui.todo_list
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.nordlocker.android_task.R
-import com.nordlocker.android_task.databinding.TodoDetailsFragmentBinding
 import com.nordlocker.android_task.databinding.TodoListFragmentBinding
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -51,6 +49,7 @@ class TodoListFragment : Fragment() {
 	private fun observeViewState() {
 		viewLifecycleOwner.lifecycleScope.launch {
 			viewModel.todoListStateFlow.collect {
+				Log.d("TodoListFragment", "updating todo list")
 				(binding.todosRecyclerView.adapter as TodoListAdapter).submitList(it)
 			}
 		}

@@ -8,7 +8,7 @@ import com.nordlocker.domain.models.Todo
 class TodoEntity(
     @PrimaryKey val id: Int,
     val title: String,
-    val isCompleted: Boolean,
+    val completed: Boolean,
     val createdAt: String,
     val updatedAt: String,
     val dueDate: String
@@ -19,7 +19,7 @@ class TodoEntity(
             TodoEntity(
                 id = id ?: 0,
                 title = title ?: "",
-                isCompleted = completed,
+                completed = completed,
                 createdAt = createdAt,
                 updatedAt = updatedAt,
                 dueDate = dueDate ?: ""
@@ -29,7 +29,7 @@ class TodoEntity(
     fun toDomain() = Todo(
         id = id,
         title = title,
-        completed = isCompleted,
+        completed = completed,
         createdAt = createdAt,
         updatedAt = updatedAt,
         dueDate = dueDate

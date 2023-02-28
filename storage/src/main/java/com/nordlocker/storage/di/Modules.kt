@@ -1,11 +1,11 @@
 package com.nordlocker.storage.di
 
-import com.nordlocker.domain.interfaces.TodoStorage
+import com.nordlocker.domain.interfaces.TodoStorageDataSource
 import com.nordlocker.storage.DatabaseCreator
-import com.nordlocker.storage.todo.TodoStorageImpl
+import com.nordlocker.storage.todo.TodoStorageServiceImpl
 import org.koin.dsl.module
 
 val storageModule = module {
     single { DatabaseCreator.create(get()) }
-    single<TodoStorage> { TodoStorageImpl(database = get()) }
+    single<TodoStorageDataSource> { TodoStorageServiceImpl(database = get()) }
 }

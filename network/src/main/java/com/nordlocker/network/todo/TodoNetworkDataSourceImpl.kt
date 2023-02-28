@@ -1,5 +1,6 @@
 package com.nordlocker.network.todo
 
+import android.util.Log
 import com.nordlocker.domain.interfaces.TodoNetworkDataSource
 import com.nordlocker.domain.models.Todo
 import com.nordlocker.network.ApiClient
@@ -18,9 +19,11 @@ class TodoNetworkDataSourceImpl(
 
 
 	override suspend fun getAllTodos(): List<Todo> {
-		return getResult<TodoListResponse>(
+		val data = getResult<TodoListResponse>(
 			onCall = { client.httpClient.get { url { encodedPath = "public-api/todos" } } }
-		).data?.map { it.toDomain() } ?: emptyList()
+		).data
+		Log.d("TodoNetworkDataSource", data.toString())
+		return data?.map { it.toDomain() } ?: emptyList()
 	}
 
 	private suspend inline fun <reified T : Any> getResult(
