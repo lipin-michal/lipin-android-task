@@ -18,8 +18,8 @@ class TodoEntity(
     companion object {
         fun Todo.toEntity() =
             TodoEntity(
-                id = id ?: 0,
-                title = title ?: "",
+                id = id,
+                title = title,
                 completed = completed,
                 createdAt = createdAt,
                 updatedAt = updatedAt,
