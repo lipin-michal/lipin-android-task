@@ -33,7 +33,7 @@ class TodoListFragment : Fragment() {
 		super.onViewCreated(view, savedInstanceState)
 
 		binding.todosRecyclerView.apply {
-			layoutManager =  LinearLayoutManager(activity).apply {
+			layoutManager = LinearLayoutManager(activity).apply {
 				orientation = LinearLayoutManager.VERTICAL
 			}
 			adapter = TodoListAdapter {
@@ -43,6 +43,9 @@ class TodoListFragment : Fragment() {
 			}
 		}
 
+		binding.switchSortButton.setOnClickListener {
+			viewModel.switchTodoSortType()
+		}
 		observeViewState()
 	}
 
@@ -54,4 +57,5 @@ class TodoListFragment : Fragment() {
 			}
 		}
 	}
+
 }

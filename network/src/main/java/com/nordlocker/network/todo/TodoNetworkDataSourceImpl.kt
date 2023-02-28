@@ -5,6 +5,7 @@ import com.nordlocker.domain.interfaces.TodoNetworkDataSource
 import com.nordlocker.domain.models.Todo
 import com.nordlocker.network.ApiClient
 import com.nordlocker.network.todo.response.TodoListResponse
+import com.nordlocker.network.todo.response.TodoResponseConverter.convertToDomain
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import io.ktor.http.*
@@ -23,7 +24,7 @@ class TodoNetworkDataSourceImpl(
 			onCall = { client.httpClient.get { url { encodedPath = "public-api/todos" } } }
 		).data
 		Log.d("TodoNetworkDataSource", data.toString())
-		return data?.map { it.toDomain() } ?: emptyList()
+		return data?.map { it.convertToDomain() } ?: emptyList()
 	}
 
 	private suspend inline fun <reified T : Any> getResult(

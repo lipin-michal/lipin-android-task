@@ -3,15 +3,16 @@ package com.nordlocker.storage.todo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.nordlocker.domain.models.Todo
+import java.time.LocalDateTime
 
 @Entity(tableName = TodoDao.TABLE_NAME)
 class TodoEntity(
     @PrimaryKey val id: Int,
     val title: String,
     val completed: Boolean,
-    val createdAt: String,
-    val updatedAt: String,
-    val dueDate: String
+    val createdAt: Long,
+    val updatedAt: Long,
+    val dueDate: Long
 ) {
 
     companion object {
@@ -22,7 +23,7 @@ class TodoEntity(
                 completed = completed,
                 createdAt = createdAt,
                 updatedAt = updatedAt,
-                dueDate = dueDate ?: ""
+                dueDate = dueDate
             )
     }
 
