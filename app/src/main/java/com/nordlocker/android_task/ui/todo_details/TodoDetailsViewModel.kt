@@ -8,6 +8,7 @@ import com.nordlocker.domain.interactors.UpdateTodoDetailsUseCase
 import com.nordlocker.domain.models.Todo
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
+import java.time.Instant
 
 class TodoDetailsViewModel(
 	todoId: Int,
@@ -30,11 +31,11 @@ class TodoDetailsViewModel(
 	)
 
 	fun changeTitle(title: String) {
-		updateTodo { it.copy(title = title) }
+		updateTodo { it.copy(title = title, updatedAt = Instant.now().toEpochMilli()) }
 	}
 
 	fun switchCompleted(completed: Boolean) {
-		updateTodo { it.copy(completed = completed) }
+		updateTodo { it.copy(completed = completed, updatedAt = Instant.now().toEpochMilli()) }
 	}
 
 	private fun updateTodo(todoChangeApplier: (Todo) -> Todo) {
