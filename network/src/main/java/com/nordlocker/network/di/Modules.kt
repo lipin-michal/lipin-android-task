@@ -6,6 +6,6 @@ import com.nordlocker.network.todo.TodoNetworkDataSourceImpl
 import org.koin.dsl.module
 
 val networkModule = module {
-    single { ApiClient() }
-    single<TodoNetworkDataSource> { TodoNetworkDataSourceImpl(client = get()) }
+	single { ApiClient() }
+	single<TodoNetworkDataSource> { TodoNetworkDataSourceImpl(client = get()) }
 }

@@ -6,6 +6,6 @@ import com.nordlocker.storage.todo.TodoStorageServiceImpl
 import org.koin.dsl.module
 
 val storageModule = module {
-    single { DatabaseCreator.create(get()) }
-    single<TodoStorageDataSource> { TodoStorageServiceImpl(database = get()) }
+	single { DatabaseCreator.create(get()) }
+	single<TodoStorageDataSource> { TodoStorageServiceImpl(database = get()) }
 }

@@ -8,14 +8,14 @@ import com.nordlocker.storage.di.storageModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
-class App: Application() {
+class App : Application() {
 
-    override fun onCreate() {
-        super.onCreate()
+	override fun onCreate() {
+		super.onCreate()
 
-        startKoin {
-            androidContext(this@App)
-            modules(storageModule, networkModule, domainModule, appModule)
-        }
-    }
+		startKoin {
+			androidContext(this@App)
+			modules(storageModule, networkModule, domainModule, appModule)
+		}
+	}
 }

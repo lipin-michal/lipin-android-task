@@ -6,9 +6,9 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class TodoListResponse(
 	@SerialName("code")
-    val code: Int? = null,
+	val code: Int? = null,
 	@SerialName("meta")
-    val meta: MetaResponse? = null,
+	val meta: MetaResponse? = null,
 	@SerialName("data")
-    val data: List<TodoResponse>? = null
+	val data: List<TodoResponse>? = null
 )

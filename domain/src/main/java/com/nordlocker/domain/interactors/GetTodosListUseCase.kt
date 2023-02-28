@@ -7,6 +7,6 @@ import kotlinx.coroutines.flow.Flow
 
 class GetTodosListUseCase(private val todoRepository: TodoRepository) {
 
-	suspend operator fun invoke(): Flow<List<Todo>> = todoRepository.observeTodos()
+	operator fun invoke(): Flow<List<Todo>> = todoRepository.observeTodos()
 
 }

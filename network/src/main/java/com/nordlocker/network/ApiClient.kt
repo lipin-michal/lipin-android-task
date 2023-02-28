@@ -9,27 +9,27 @@ import io.ktor.http.*
 import kotlinx.serialization.json.Json
 
 class ApiClient {
-    companion object {
-        const val HOST = "gorest.co.in"
-    }
+	companion object {
+		const val HOST = "gorest.co.in"
+	}
 
-    val httpClient = HttpClient {
-        expectSuccess = false
+	val httpClient = HttpClient {
+		expectSuccess = false
 
-        install(JsonFeature) {
-            val json = Json {
-                ignoreUnknownKeys = true
-                encodeDefaults = true
-            }
-            serializer = KotlinxSerializer(json)
-        }
+		install(JsonFeature) {
+			val json = Json {
+				ignoreUnknownKeys = true
+				encodeDefaults = true
+			}
+			serializer = KotlinxSerializer(json)
+		}
 
-        defaultRequest {
-            url {
-                protocol = URLProtocol.HTTPS
-                host = HOST
-                header(HttpHeaders.ContentType, ContentType.Application.Json)
-            }
-        }
-    }
+		defaultRequest {
+			url {
+				protocol = URLProtocol.HTTPS
+				host = HOST
+				header(HttpHeaders.ContentType, ContentType.Application.Json)
+			}
+		}
+	}
 }

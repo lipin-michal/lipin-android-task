@@ -5,7 +5,6 @@ import androidx.lifecycle.viewModelScope
 import com.nordlocker.domain.interactors.GetTodosListUseCase
 import com.nordlocker.domain.interactors.RefreshTodosUseCase
 import com.nordlocker.domain.models.Todo
-import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
@@ -37,12 +36,12 @@ class TodoListViewModel(
 	}
 
 	fun switchTodoSortType() {
-		todoSortType = when(todoSortType) {
+		todoSortType = when (todoSortType) {
 			TodoSortType.RecentlyUpdated -> TodoSortType.NotCompleted
 			TodoSortType.NotCompleted -> TodoSortType.RecentlyUpdated
 			else -> TodoSortType.NotCompleted
 		}
-		viewModelScope.launch(supervisorJob) {
+		viewModelScope.launch {
 			_todoListStateFlow.update {
 				it.toList().sortedWith(todoSortType!!.comparator)
 			}

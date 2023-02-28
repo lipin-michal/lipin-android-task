@@ -31,4 +31,5 @@ dependencies {
 
 	implementation("io.ktor:ktor-client-android:1.6.0")
 	implementation("io.ktor:ktor-client-serialization:1.6.0")
+	testImplementation("junit:junit:4.12")
 }
