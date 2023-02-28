@@ -5,8 +5,8 @@ import com.nordlocker.domain.repo.TodoRepository
 import kotlinx.coroutines.flow.Flow
 
 
-class GetTodosListUseCase(private val todoRepository: TodoRepository) {
+class GetTodoDetailsUseCase(private val todoRepository: TodoRepository) {
 
-	suspend operator fun invoke(): Flow<List<Todo>> = todoRepository.observeTodos()
+	operator fun invoke(id: Int): Flow<Todo?> = todoRepository.observeTodo(id)
 
 }

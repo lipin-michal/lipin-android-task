@@ -25,7 +25,7 @@ class TodoRepositoryImpl(
 		return todoStorageDataSource.todosFlow
 	}
 
-	override suspend fun getTodoDetails(id: Int): Todo {
-		return todoStorageDataSource.getTodo(id)
+	override fun observeTodo(id: Int): Flow<Todo?> {
+		return todoStorageDataSource.observeTodo(id)
 	}
 }

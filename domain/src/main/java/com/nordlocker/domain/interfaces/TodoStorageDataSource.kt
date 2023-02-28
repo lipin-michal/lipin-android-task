@@ -13,6 +13,6 @@ interface TodoStorageDataSource {
 
 	suspend fun getTodo(id: Int): Todo
 
-//	suspend fun observeTodo(id: Int): Flow<Todo>
+	fun observeTodo(id: Int): Flow<Todo?>
 
 }

@@ -26,4 +26,7 @@ class TodoStorageServiceImpl(database: TodoDatabase) : TodoStorageDataSource {
 	override suspend fun getTodo(id: Int): Todo =
 		dao.getTodo(id).toDomain()
 
+	override fun observeTodo(id: Int): Flow<Todo?> {
+		return dao.observeTodo(id).map { it?.toDomain() }
+	}
 }

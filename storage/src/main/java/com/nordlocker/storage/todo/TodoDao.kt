@@ -25,4 +25,7 @@ interface TodoDao {
 	@Query("SELECT * FROM $TABLE_NAME WHERE id = :id")
 	suspend fun getTodo(id: Int): TodoEntity
 
+	@Query("SELECT * FROM $TABLE_NAME WHERE id = :id")
+	fun observeTodo(id: Int): Flow<TodoEntity?>
+
 }
