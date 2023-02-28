@@ -20,6 +20,10 @@ class TodoStorageServiceImpl(database: TodoDatabase) : TodoStorageDataSource {
 		dao.updateOrCreate(list.map { it.toEntity() })
 	}
 
+	override suspend fun update(todo: Todo) {
+		dao.update(todo.toEntity())
+	}
+
 	override suspend fun getAll(): List<Todo> =
 		dao.getAll().map { it.toDomain() }
 

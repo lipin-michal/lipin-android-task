@@ -5,6 +5,7 @@ import com.nordlocker.android_task.ui.todo_list.TodoListViewModel
 import com.nordlocker.domain.interactors.GetTodoDetailsUseCase
 import com.nordlocker.domain.interactors.GetTodosListUseCase
 import com.nordlocker.domain.interactors.RefreshTodosUseCase
+import com.nordlocker.domain.interactors.UpdateTodoDetailsUseCase
 import com.nordlocker.domain.repo.TodoRepository
 import com.nordlocker.domain.repo.TodoRepositoryImpl
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -15,11 +16,12 @@ val domainModule = module {
 	factory { RefreshTodosUseCase(get()) }
 	factory { GetTodosListUseCase(get()) }
 	factory { GetTodoDetailsUseCase(get()) }
+	factory { UpdateTodoDetailsUseCase(get()) }
 }
 
 val appModule = module {
 
 	viewModel { TodoListViewModel(get(), get()) }
-	viewModel { args -> TodoDetailsViewModel(args.get(), get()) }
+	viewModel { args -> TodoDetailsViewModel(args.get(), get(), get()) }
 
 }

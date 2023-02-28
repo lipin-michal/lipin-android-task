@@ -7,8 +7,10 @@ interface TodoRepository {
 
 	suspend fun refreshTodos()
 
-	suspend fun observeTodos(): Flow<List<Todo>>
+	fun observeTodos(): Flow<List<Todo>>
 
 	fun observeTodo(id: Int): Flow<Todo?>
+
+	suspend fun update(todo: Todo)
 
 }

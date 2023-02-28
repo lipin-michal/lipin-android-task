@@ -9,6 +9,8 @@ interface TodoStorageDataSource {
 
 	suspend fun updateOrCreate(list: List<Todo>)
 
+	suspend fun update(todo: Todo)
+
 	suspend fun getAll(): List<Todo>
 
 	suspend fun getTodo(id: Int): Todo

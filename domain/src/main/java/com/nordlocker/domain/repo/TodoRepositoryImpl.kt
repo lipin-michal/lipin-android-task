@@ -21,11 +21,15 @@ class TodoRepositoryImpl(
 		todoStorageDataSource.updateOrCreate(getNetworkTodos().first())
 	}
 
-	override suspend fun observeTodos(): Flow<List<Todo>> {
+	override fun observeTodos(): Flow<List<Todo>> {
 		return todoStorageDataSource.todosFlow
 	}
 
 	override fun observeTodo(id: Int): Flow<Todo?> {
 		return todoStorageDataSource.observeTodo(id)
+	}
+
+	override suspend fun update(todo: Todo) {
+		todoStorageDataSource.update(todo)
 	}
 }

@@ -40,6 +40,14 @@ class TodoDetailsFragment : Fragment() {
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 
+		binding.completedCheckbox.setOnCheckedChangeListener { _, checked ->
+			switchCompleted(checked)
+		}
+
+		binding.saveButton.setOnClickListener {
+			changeTitle(binding.titleEditText.text.toString())
+		}
+
 		observe()
 	}
 
@@ -62,4 +70,17 @@ class TodoDetailsFragment : Fragment() {
 		binding.dueDateText.text =
 			SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(todo.dueDate)
 	}
+
+	private fun switchCompleted(completed: Boolean) {
+		viewLifecycleOwner.lifecycleScope.launch {
+			viewModel.switchCompleted(completed)
+		}
+	}
+
+	private fun changeTitle(title: String) {
+		viewLifecycleOwner.lifecycleScope.launch {
+			viewModel.changeTitle(title)
+		}
+	}
+
 }

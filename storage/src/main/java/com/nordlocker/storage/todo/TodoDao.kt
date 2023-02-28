@@ -16,6 +16,9 @@ interface TodoDao {
 	@Insert(onConflict = OnConflictStrategy.REPLACE)
 	suspend fun updateOrCreate(list: List<TodoEntity>)
 
+	@Insert(onConflict = OnConflictStrategy.REPLACE)
+	suspend fun update(todo: TodoEntity)
+
 	@Query("SELECT * FROM $TABLE_NAME")
 	suspend fun getAll(): List<TodoEntity>
 
